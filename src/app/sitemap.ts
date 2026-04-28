@@ -4,7 +4,7 @@ import { locales } from "@/lib/i18n";
 const baseUrl = "https://example.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/services", "/industries", "/faq"];
+  const pages = ["", "/services", "/industries", "/faq", "/contact"];
 
   return locales.flatMap((lang) =>
     pages.map((page) => ({

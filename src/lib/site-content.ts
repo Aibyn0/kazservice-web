@@ -424,7 +424,7 @@ export const contentByLocale: Record<Locale, SiteContent> = {
     ],
     wechatId: "KAZ-INVEST-TEAM",
   },
-  "ru-KZ": {
+  "en-US": {
     siteName: "Kaz Investment Advisory",
     slogan: "Deep expertise in Kazakhstan, bridge to Central Asia",
     ctaPrimary: "Book Consultation",
@@ -509,21 +509,56 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         "From pre-investment planning to legal-tax compliance and financing, we support end-to-end execution in Kazakhstan.",
     },
     positioning:
-      "We treat each engagement as part of a long-term growth strategy, not a one-time consulting assignment.",
+      "We don’t deliver “one-off reports.” We build investor-ready strategy, numbers and execution—so your project becomes finance-ready and bankable in the real world.",
     about: [
-      "International advisory team for strategy and investment execution.",
-      "We support projects from idea validation to financing and transaction closing.",
+      "International investment advisory team focused on Kazakhstan and Central Asia.",
+      "We walk with you across the full cycle—from an investment idea to capital structuring and transaction closing.",
+      "We turn uncertainty into a decision: clear scenarios, measurable KPIs, and a plan your stakeholders can execute.",
     ],
     workMethod: [
-      "Strategic partnership and confidentiality.",
-      "Integrated analysis across finance, market and legal dimensions.",
-      "Transparent process and execution discipline.",
+      "Strategic partnership: we act as your external CFO/finance lead when needed.",
+      "Confidentiality by default: sensitive data is handled under strict ethics and protection principles.",
+      "Cross-discipline analysis: finance, market, legal, tax and investment angles in one narrative.",
+      "Transparent process: clear milestones, deliverables and feedback loops—no black-box consulting.",
+    ],
+    processSteps: [
+      "Discovery: align on goals, constraints and stakeholder expectations.",
+      "Modeling: build a driver-based financial model with scenarios and stress tests.",
+      "Packaging: craft an investor/bank-ready story (BP, teaser, key exhibits).",
+      "Execution: lender/investor outreach, negotiation support and term optimization.",
+      "Post-close: connect the model to management accounting for KPI tracking and iteration.",
     ],
     marketResearchSteps: [
-      "Define research objectives and hypotheses.",
-      "Segment demand and benchmark competitors.",
-      "Translate data into actionable go-to-market guidance.",
+      "Define decision questions (what must be true for the project to work).",
+      "Map demand, pricing and competitors—then identify the real drivers of profitability.",
+      "Turn findings into a market-entry plan: channels, partners, risk controls and KPIs.",
     ],
+    financingSources: [
+      "Kazakhstan second-tier banks (STB): working capital & capex loans",
+      "National development institutions: Damu Fund, Development Bank of Kazakhstan (DBK)",
+      "International financial institutions: EBRD, ADB, etc.",
+      "Private investors and funds",
+      "Mezzanine, bridge financing, refinancing and restructuring options",
+    ],
+    caseStudy: {
+      title: "Logistics Holding—Investor-Ready Financial Model",
+      challenge:
+        "A large logistics group needed a transparent, international-standard model that investors could trust—and update live during negotiations.",
+      solution: [
+        "Built a driver-based Excel model with automated NPV, IRR and payback calculations.",
+        "Stress-tested the business under FX shocks and logistics cost swings.",
+        "Prepared three negotiation-ready scenarios: downside, base and upside.",
+      ],
+      result: [
+        "Attracted USD 15M in foreign investment thanks to transparency and credible assumptions.",
+        "Embedded the model into management accounting to track daily KPIs and performance.",
+      ],
+      method: [
+        "Start with consistent drivers and traceable inputs so every number can be explained.",
+        "Run scenario stress tests to reveal trigger points and mitigation levers.",
+        "Operationalize the model as a living KPI tool—not a static file.",
+      ],
+    },
     strengths: [
       "Government-backed local insight",
       "Trilingual communication support",
@@ -533,21 +568,61 @@ export const contentByLocale: Record<Locale, SiteContent> = {
     services: [
       {
         title: "Pre-Investment",
-        summary: "Business plans, market research, financial modeling and risk analysis.",
-        forWho: ["Companies preparing fundraising or market entry", "Management teams evaluating new investments"],
-        notForWho: ["Projects seeking template-only documents"],
+        summary:
+          "Make the investment decisionable: business plan, market research, driver-based financial model and risk map—built to meet Kazakhstan lenders’ expectations.",
+        details: [
+          "Loan-ready business plan aligned with local bank standards and review logic.",
+          "Market research across key sectors with competitor and pricing benchmarks.",
+          "Financial modeling with NPV/IRR/payback, multi-scenario forecasting and stress testing.",
+        ],
+        forWho: [
+          "Project companies preparing to raise debt or equity financing",
+          "Teams expanding capacity, entering new regions or launching new business units",
+          "Owners and management who need a clear risk-return decision framework",
+        ],
+        notForWho: [
+          "Projects that only need a generic template document",
+          "Teams unwilling to validate assumptions with basic data and market checks",
+        ],
+        deliverables: [
+          "Bank/investor-ready business plan and financial model",
+          "Market and investment attractiveness conclusions you can defend in meetings",
+          "KPI set + risk mitigation recommendations",
+        ],
       },
       {
         title: "Legal & Tax",
-        summary: "Contract and corporate support, tax optimization and IP protection.",
-        forWho: ["Operating entities requiring legal-tax compliance support"],
-        notForWho: ["Projects attempting to bypass compliance requirements"],
+        summary:
+          "Stay compliant while moving fast: contracts, corporate structuring, tax planning and regulator interaction—so execution doesn’t break on legal/tax risks.",
+        details: [
+          "Legal support: contract drafting/review, corporate changes, disputes and representation.",
+          "Tax support: filings, lawful optimization, audit readiness and risk control.",
+          "Special support: trademark/IP, permits, visas and delegation hosting.",
+        ],
+        forWho: [
+          "Companies registering or restructuring entities in Kazakhstan",
+          "Operations teams managing complex counterparties and contracts",
+          "Projects needing tax-risk protection and audit/inspection support",
+        ],
+        notForWho: ["Projects attempting to bypass compliance requirements", "One-off legal texts without execution support"],
+        deliverables: ["Contract risk checklist and templates", "Tax compliance calendar + optimization roadmap", "Regulator/audit support plan"],
       },
       {
         title: "Financing & M&A",
-        summary: "Bank and institutional financing, restructuring and M&A support.",
-        forWho: ["Businesses optimizing capital structure and transactions"],
-        notForWho: ["Projects not ready for diligence or disclosure"],
+        summary:
+          "From capital strategy to closing: financing structuring, investor outreach, negotiation and M&A execution—built for complex deals and real-world constraints.",
+        details: [
+          "Funding channels: STB, Damu, DBK, EBRD, ADB and private capital.",
+          "Deal support: debt/equity, restructuring, mezzanine & bridge solutions.",
+          "M&A: valuation, deal structure, negotiation and closing support.",
+        ],
+        forWho: [
+          "Businesses optimizing capital structure and lowering financing cost",
+          "Shareholders and management planning acquisitions or restructuring",
+          "Sponsors needing end-to-end negotiation and closing support",
+        ],
+        notForWho: ["Projects not ready for diligence or disclosure", "Projects unwilling to open a negotiation window"],
+        deliverables: ["Financing roadmap + lender/investor shortlist", "Teaser & negotiation points + term guidance", "Execution support through funding receipt/closing"],
       },
     ],
     industries: [
@@ -558,49 +633,326 @@ export const contentByLocale: Record<Locale, SiteContent> = {
     ],
     faqs: [
       {
-        question: "Why not apply to banks directly?",
+        question: "Why not go to a bank directly?",
         answer:
-          "Banks only review credit conditions. We make the project finance-ready before negotiations.",
+          "Banks evaluate— they don’t package projects. We make your project finance-ready so you can defend assumptions and terms in real negotiations.",
       },
       {
-        question: "Can the financial model be adjusted dynamically?",
-        answer: "Yes, with scenario stress testing for FX, logistics and demand changes.",
+        question: "How long does a typical engagement take?",
+        answer:
+          "Most projects reach a first investor/bank-ready roadmap in 2–6 weeks, depending on data readiness and complexity.",
       },
       {
-        question: "How long does a standard engagement take?",
-        answer: "Usually 2-6 weeks for first-round strategy and financing roadmap.",
+        question: "Can you guarantee funding approval?",
+        answer:
+          "No one can guarantee approval. What we guarantee is the standard of structure, materials and negotiation readiness that materially improves approval probability.",
       },
     ],
     faqSections: [
       {
         id: "model",
-        title: "Modeling & Planning",
-        description: "Questions about financial modeling and planning decisions.",
+        title: "Modeling & Business Planning",
+        description: "Pricing, timeline, inputs—how we build a model that lenders and investors trust.",
         items: [
           {
-            question: "Why do I need a model if I already have a business plan?",
+            question: "Why build a financial model if I already have a business plan?",
             answer:
-              "A business plan is mostly static. A financial model is dynamic and allows instant scenario analysis for risk and return.",
+              "A plan explains the story. A model proves the story. You can change price/volume/cost assumptions live and immediately see the impact on profitability, payback and risk.",
+          },
+          {
+            question: "What determines the cost of a financial model?",
+            answer:
+              "Scope and complexity: number of business lines, level of detail, scenario depth, and whether it’s built for bank approval or equity investment.",
+          },
+          {
+            question: "How long does it take?",
+            answer:
+              "Simple models can be delivered quickly; complex projects require deeper data validation. We align on milestones at kickoff to balance speed and quality.",
           },
         ],
       },
       {
         id: "financing",
-        title: "Financing & Execution",
-        description: "Questions about financing process and execution support.",
+        title: "Financing & Deal Execution",
+        description: "How we structure financing, negotiate terms and drive closing.",
         items: [
           {
-            question: "Can you guarantee funding approval?",
+            question: "Can you guarantee the financing will be approved?",
             answer:
-              "Final approval is made by lenders or investors. We maximize approval probability through structure, materials and negotiation strategy.",
+              "Approval is always the lender/investor’s decision. What we guarantee is the standard: structure, documentation and negotiation readiness—so your approval probability increases materially.",
+          },
+          {
+            question: "Why work with you instead of going to a bank directly?",
+            answer:
+              "Because banks don’t fix projects—they evaluate them. We make your project finance-ready, anticipate objections, and help you defend the numbers in negotiation.",
+          },
+          {
+            question: "How do you charge?",
+            answer:
+              "Typically a combination of a fixed fee (work scope) plus a success fee (paid only after funding is received). This keeps incentives aligned.",
           },
         ],
       },
     ],
     footerInfo: {
-      compliance: ["Confidentiality-first execution", "International modeling and valuation standards"],
-      coverage: ["Projects across Kazakhstan", "Remote collaboration support"],
-      contact: ["WeChat: KAZ-INVEST-TEAM", "Response within 1 business day"],
+      compliance: [
+        "Confidentiality-first execution and ethics",
+        "International-standard modeling and analysis",
+        "Transparent milestones and deliverables",
+      ],
+      coverage: ["Projects across Kazakhstan", "Remote delivery and cross-region coordination", "Trilingual support (CN/RU/EN)"],
+      contact: ["WeChat: KAZ-INVEST-TEAM", "Response within 1 business day", "Book a free 30-min initial review"],
+    },
+    wechatId: "KAZ-INVEST-TEAM",
+  },
+  "ru-RU": {
+    siteName: "Kaz Investment Advisory",
+    slogan: "Экспертиза по Казахстану — мост к возможностям Центральной Азии",
+    ctaPrimary: "Записаться на консультацию",
+    ctaSecondary: "Скачать гид",
+    nav: {
+      home: "Главная",
+      services: "Услуги",
+      industries: "Отрасли",
+      faq: "FAQ",
+      contact: "Контакт",
+    },
+    proofStats: [
+      { label: "Ключевых направлений", value: "7+" },
+      { label: "Отраслей", value: "4" },
+      { label: "Кейс финансирования", value: "USD 15M" },
+      { label: "Срок первичного плана", value: "2–6 недель" },
+    ],
+    projectTracks: [
+      {
+        title: "Проекты по привлечению финансирования",
+        summary: "Долговое/долевое финансирование: материалы для инвесторов и сопровождение переговоров.",
+        href: "/services",
+      },
+      {
+        title: "Проекты расширения",
+        summary: "Новые линии и регионы: оценка эффективности и финансовая модель.",
+        href: "/industries",
+      },
+      {
+        title: "Сделки M&A",
+        summary: "Покупка активов и реструктуризация: due diligence и структура сделки.",
+        href: "/services",
+      },
+    ],
+    labels: {
+      coreStrengths: "Ключевые преимущества",
+      aboutUs: "О нас",
+      viewAll: "Смотреть все",
+      caseStudy: "Кейс",
+      challenge: "Задача",
+      solution: "Решение",
+      result: "Результат",
+      positioning: "Подход",
+      process: "Процесс",
+      financingSources: "Источники финансирования",
+      serviceContent: "Что делаем",
+      targetClients: "Для кого",
+      deliverables: "Результаты",
+      workMethod: "Метод работы",
+      cooperationFlow: "Этапы",
+      industryIntro:
+        "Опираясь на отраслевые базы и практический опыт, оцениваем рынок, конкуренцию и инвестиционную привлекательность.",
+      marketResearchMethod: "Методика исследования рынка",
+      faqIntro: "Частые вопросы по финансированию и реализации проектов.",
+      faqAll: "Все",
+      faqSearchPlaceholder: "Поиск по ключевым словам (финансирование, модель, сроки)",
+      faqNoResults: "Ничего не найдено. Попробуйте другой запрос или тему.",
+      primaryAction: "Бесплатная первичная оценка (30 мин)",
+      secondaryAction: "Смотреть услуги",
+      contactTitle: "Связаться",
+      contactIntro: "Опишите проект — мы свяжемся с вами в течение 1 рабочего дня.",
+      formName: "Имя",
+      formContact: "Контакт (WeChat/телефон/email)",
+      formCompany: "Компания / Проект",
+      formNeed: "Запрос",
+      formSubmit: "Отправить",
+      formSuccess: "Заявка получена. Мы свяжемся с вами в ближайшее время.",
+      formSubmitting: "Отправка...",
+      formError: "Не удалось отправить. Повторите позже или напишите в WeChat.",
+      fitProjects: "Подходит",
+      notFitProjects: "Не подходит",
+      replicableMethod: "Повторяемый метод",
+      footerCompliance: "Стандарты и комплаенс",
+      footerCoverage: "География",
+      footerContact: "Контакты",
+      quickEntryTitle: "Быстрый вход по типу проекта",
+      quickEntryAction: "Открыть",
+    },
+    hero: {
+      title: "Партнёр по реализации и входу на рынок",
+      description:
+        "От предпроектной подготовки до юридико-налогового сопровождения и привлечения капитала — полный цикл поддержки в Казахстане.",
+    },
+    positioning:
+      "Мы не продаём «разовые отчёты». Мы делаем проект finance‑ready: стратегия, цифры и исполнение, чтобы инвестор и банк видели логику, риски и управляемость.",
+    about: [
+      "Международная команда инвестиционного консалтинга по Казахстану и Центральной Азии.",
+      "Сопровождаем полный цикл — от идеи и проверки гипотез до структуры капитала и закрытия сделки.",
+      "Помогаем превратить неопределённость в решение: сценарии, KPI и план, который можно реализовать.",
+    ],
+    workMethod: [
+      "Партнёрский подход: при необходимости работаем как внешний CFO/финансовый лидер проекта.",
+      "Конфиденциальность по умолчанию: строгая этика и защита чувствительных данных.",
+      "Комплексная экспертиза: финансы, рынок, право, налоги и инвестиционная логика в единой истории.",
+      "Прозрачный процесс: этапы, результаты и регулярная синхронизация без «чёрного ящика».",
+    ],
+    processSteps: [
+      "Диагностика: цели, ограничения, ожидания стейкхолдеров.",
+      "Моделирование: драйверная модель + сценарии и стресс‑тесты.",
+      "Упаковка: бизнес‑план, teaser и ключевые материалы для инвестора/банка.",
+      "Исполнение: поиск источников, сопровождение переговоров, оптимизация условий.",
+      "После закрытия: внедрение модели в управленческий учёт и KPI‑контроль.",
+    ],
+    marketResearchSteps: [
+      "Формулируем вопросы решения (что должно быть верно, чтобы проект работал).",
+      "Оцениваем спрос, цены и конкурентов — выявляем реальные драйверы маржи и окупаемости.",
+      "Переводим выводы в план выхода на рынок: каналы, партнёры, риски и KPI.",
+    ],
+    strengths: [
+      "Локальная экспертиза и понимание правил рынка",
+      "Трёхъязычная коммуникация",
+      "Международные стандарты финансового анализа",
+      "Полный цикл сопровождения",
+    ],
+    services: [
+      {
+        title: "Прединвестиционная подготовка",
+        summary:
+          "Делаем инвестиционное решение «считаемым»: бизнес‑план, исследование рынка, драйверная модель и карта рисков — под логику проверки банков и инвесторов.",
+        details: [
+          "Бизнес‑план под требования кредиторов в Казахстане и их логику анализа.",
+          "Исследование рынка по ключевым секторам с бенчмарками конкурентов и цен.",
+          "Финмодель с NPV/IRR/сроком окупаемости, сценариями и стресс‑тестами.",
+        ],
+        forWho: [
+          "Проектные компании, готовящиеся к долгу или equity",
+          "Команды расширения: новые линии, регионы или бизнес‑направления",
+          "Собственники и менеджмент, которым нужна понятная рамка риск‑доходность",
+        ],
+        notForWho: [
+          "Проекты «нужен только шаблон» без проверки допущений",
+          "Команды, которые не готовы подтвердить базовые данные и гипотезы",
+        ],
+        deliverables: [
+          "Бизнес‑план и финмодель уровня bank/investor‑ready",
+          "Выводы по инвестиционной привлекательности, которые можно защищать на переговорах",
+          "KPI и рекомендации по снижению рисков",
+        ],
+      },
+      {
+        title: "Юридическое и налоговое сопровождение",
+        summary:
+          "Комплаенс без тормозов: контракты, структура, налоги и взаимодействие с органами — чтобы исполнение не «сломалось» на юридико‑налоговых рисках.",
+        details: [
+          "Право: договорная работа, корпоративные изменения, споры и представительство.",
+          "Налоги: отчётность, законная оптимизация, готовность к проверкам и контроль рисков.",
+          "Спецподдержка: товарные знаки/IP, разрешения, визы и приём делегаций.",
+        ],
+        forWho: [
+          "Компании, регистрирующие/реструктурирующие бизнес в Казахстане",
+          "Операционные команды со сложными контрагентами и контрактами",
+          "Проекты, которым важно снизить налоговые риски и спокойно проходить проверки",
+        ],
+        notForWho: ["Проекты, пытающиеся обойти комплаенс", "Только разовый юридический текст без сопровождения"],
+        deliverables: ["Чек‑лист рисков и шаблоны договоров", "Налоговый календарь + дорожная карта оптимизации", "План сопровождения проверок/регуляторов"],
+      },
+      {
+        title: "Финансирование и M&A",
+        summary:
+          "От стратегии капитала до закрытия сделки: структура, поиск источников, переговоры и сопровождение M&A — для сложных проектов и реальных ограничений.",
+        details: [
+          "Каналы: STB, Damu, DBK, EBRD, ADB и частный капитал.",
+          "Инструменты: долг/equity, реструктуризация, mezzanine и bridge‑решения.",
+          "M&A: оценка, структура, переговоры и закрытие.",
+        ],
+        forWho: [
+          "Компании, оптимизирующие структуру капитала и стоимость финансирования",
+          "Акционеры и менеджмент, планирующие приобретение активов или реструктуризацию",
+          "Спонсоры, которым нужно сопровождение переговоров до закрытия",
+        ],
+        notForWho: ["Проекты, не готовые к due diligence/раскрытию", "Проекты без окна переговоров"],
+        deliverables: ["Дорожная карта финансирования + shortlist источников", "Teaser и позиция по условиям/терм‑листу", "Сопровождение до получения средств/закрытия"],
+      },
+    ],
+    industries: [
+      { title: "Химические парки", summary: "Стратегия входа и кооперация в ключевых промзонах." },
+      { title: "Горнодобыча и энергетика", summary: "Анализ cash‑flow и рисков для крупных активов." },
+      { title: "Агропереработка", summary: "Локализация и экспортная готовность цепочек." },
+      { title: "Трансграничная логистика", summary: "Маршруты и оптимизация затрат региональной торговли." },
+    ],
+    faqs: [
+      {
+        question: "Почему не пойти в банк напрямую?",
+        answer:
+          "Банк оценивает проект, но не «упаковывает» его. Мы доводим проект до состояния finance‑ready, чтобы вы могли защитить допущения и условия на переговорах.",
+      },
+      {
+        question: "Сколько длится типовой проект?",
+        answer:
+          "Чаще всего первичная дорожная карта и пакет материалов уровня investor/bank‑ready формируются за 2–6 недель — в зависимости от данных и сложности.",
+      },
+      {
+        question: "Можно ли гарантировать получение финансирования?",
+        answer:
+          "Гарантий одобрения не даёт никто — решение за инвестором/кредитором. Мы гарантируем стандарт подготовки: структура, документы и переговорная стратегия, которые повышают вероятность результата.",
+      },
+    ],
+    faqSections: [
+      {
+        id: "model",
+        title: "Финмоделирование и бизнес‑план",
+        description: "Стоимость, сроки, входные данные — как делаем модель, которой доверяют банки и инвесторы.",
+        items: [
+          {
+            question: "Зачем нужна модель, если есть бизнес‑план?",
+            answer:
+              "План — это история. Модель — доказательство. Вы меняете цену/объём/затраты и сразу видите влияние на прибыль, окупаемость и риски.",
+          },
+          {
+            question: "От чего зависит стоимость модели?",
+            answer:
+              "От масштаба и сложности: количество линий бизнеса, глубина детализации, число сценариев и то, для кого делается модель — банк или инвестор.",
+          },
+          {
+            question: "Сколько времени занимает разработка?",
+            answer:
+              "Простые модели делаются быстро, сложным проектам нужна валидация данных и сценарии. На старте фиксируем этапы и сроки.",
+          },
+        ],
+      },
+      {
+        id: "financing",
+        title: "Финансирование и закрытие сделки",
+        description: "Структура, переговоры и доведение до результата.",
+        items: [
+          {
+            question: "Можете гарантировать получение финансирования?",
+            answer:
+              "Решение всегда за инвестором/кредитором. Мы гарантируем уровень подготовки: структура, документы и переговорная стратегия, которые заметно повышают вероятность одобрения.",
+          },
+          {
+            question: "Почему вы, а не прямой поход в банк?",
+            answer:
+              "Банк не «улучшает» проект — он его оценивает. Мы делаем проект finance‑ready, заранее закрываем вопросы и помогаем защитить цифры на переговорах.",
+          },
+          {
+            question: "Как вы берёте оплату?",
+            answer:
+              "Чаще всего это фиксированная часть за объём работ + success fee (оплачивается после фактического получения средств). Это выравнивает мотивацию на результат.",
+          },
+        ],
+      },
+    ],
+    footerInfo: {
+      compliance: ["Конфиденциальность и этика", "Международные стандарты моделирования и анализа", "Прозрачные этапы и результаты"],
+      coverage: ["Проекты по всему Казахстану", "Удалённая работа и межрегиональная координация", "Поддержка на RU/EN/CN"],
+      contact: ["WeChat: KAZ-INVEST-TEAM", "Ответ в течение 1 рабочего дня", "Бесплатная первичная оценка 30 минут"],
     },
     wechatId: "KAZ-INVEST-TEAM",
   },

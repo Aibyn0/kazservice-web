@@ -60,7 +60,9 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
           <div className="ml-2 flex items-center gap-2 rounded-full border border-slate-200 px-2 py-1 text-xs">
             <Link href="/zh-CN">中</Link>
             <span>/</span>
-            <Link href="/ru-KZ">RU</Link>
+            <Link href="/en-US">EN</Link>
+            <span>/</span>
+            <Link href="/ru-RU">RU</Link>
           </div>
         </nav>
       </div>
@@ -107,7 +109,11 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
                 中文
               </Link>
               <span>/</span>
-              <Link href="/ru-KZ" onClick={() => setMobileOpen(false)}>
+              <Link href="/en-US" onClick={() => setMobileOpen(false)}>
+                EN
+              </Link>
+              <span>/</span>
+              <Link href="/ru-RU" onClick={() => setMobileOpen(false)}>
                 RU
               </Link>
             </div>
