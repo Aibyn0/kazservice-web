@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "中哈投资咨询",
+  title: "SINOMAR INVESTMENT LTD",
   description: "深耕哈萨克斯坦，连接中亚机遇的专业投资咨询服务。",
 };
 

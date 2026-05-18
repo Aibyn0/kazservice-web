@@ -34,11 +34,23 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
   const t = contentByLocale[lang];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="site-shell relative flex min-h-screen flex-col text-foreground">
       <SiteHeader lang={lang} />
-      <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">{children}</main>
+      <main className="site-main mx-auto w-full max-w-6xl flex-1 px-4 pb-8 pt-6 sm:px-6 sm:pt-8">{children}</main>
       <SiteFooter lang={lang} />
-      <WechatFloat wechatId={t.wechatId} />
+      <WechatFloat
+        wechatId={t.wechatId}
+        labels={{
+          wechatFab: t.labels.wechatFab,
+          wechatTitle: t.labels.wechatTitle,
+          wechatClose: t.labels.wechatClose,
+          wechatScan: t.labels.wechatScan,
+          wechatMobileHint: t.labels.wechatMobileHint,
+          wechatCopy: t.labels.wechatCopy,
+          wechatCopied: t.labels.wechatCopied,
+        }}
+      />
     </div>
   );
 }
+

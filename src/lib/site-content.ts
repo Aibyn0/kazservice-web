@@ -35,8 +35,6 @@ type ProjectTrack = {
 export type SiteContent = {
   siteName: string;
   slogan: string;
-  ctaPrimary: string;
-  ctaSecondary: string;
   nav: {
     home: string;
     services: string;
@@ -45,6 +43,8 @@ export type SiteContent = {
     contact: string;
   };
   proofStats?: Array<{ label: string; value: string }>;
+  /** Hero 右侧 3 张数据卡（设计稿）；未设置时取 proofStats 前 3 条 */
+  heroStats?: Array<{ label: string; value: string }>;
   projectTracks?: ProjectTrack[];
   labels: {
     coreStrengths: string;
@@ -66,8 +66,6 @@ export type SiteContent = {
     marketResearchMethod: string;
     faqIntro: string;
     faqAll: string;
-    faqSearchPlaceholder: string;
-    faqNoResults: string;
     primaryAction: string;
     secondaryAction: string;
     contactTitle: string;
@@ -88,6 +86,13 @@ export type SiteContent = {
     footerContact: string;
     quickEntryTitle: string;
     quickEntryAction: string;
+    wechatFab: string;
+    wechatTitle: string;
+    wechatClose: string;
+    wechatScan: string;
+    wechatMobileHint: string;
+    wechatCopy: string;
+    wechatCopied: string;
   };
   hero: {
     title: string;
@@ -121,10 +126,8 @@ export type SiteContent = {
 
 export const contentByLocale: Record<Locale, SiteContent> = {
   "zh-CN": {
-    siteName: "中哈投资咨询",
-    slogan: "深耕哈萨克斯坦，连接中亚机遇",
-    ctaPrimary: "预约一对一咨询",
-    ctaSecondary: "下载投资指南",
+    siteName: "SINOMAR INVESTMENT LTD",
+    slogan: "深耕哈萨克斯坦市场 · 助力企业稳健增长",
     nav: {
       home: "首页",
       services: "服务详情",
@@ -132,6 +135,11 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       faq: "常见问题",
       contact: "预约咨询",
     },
+    heroStats: [
+      { label: "本地服务经验", value: "15+ 年" },
+      { label: "成功落地项目", value: "50+ 个" },
+      { label: "典型项目案例", value: "USD 15M+" },
+    ],
     proofStats: [
       { label: "重点服务方向", value: "7+" },
       { label: "核心行业覆盖", value: "4 大领域" },
@@ -175,10 +183,8 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       marketResearchMethod: "市场调研执行方法",
       faqIntro: "围绕融资流程与落地执行的高频问题解答。",
       faqAll: "全部",
-      faqSearchPlaceholder: "搜索问题关键词（如：融资、模型、周期）",
-      faqNoResults: "未找到匹配结果，请更换关键词或切换专题。",
-      primaryAction: "预约 30 分钟免费初评",
-      secondaryAction: "查看服务方案",
+      primaryAction: "预约咨询",
+      secondaryAction: "了解服务详情",
       contactTitle: "预约咨询",
       contactIntro: "留下您的项目信息，我们会在 1 个工作日内安排顾问与您对接。",
       formName: "姓名",
@@ -197,11 +203,18 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       footerContact: "联系信息",
       quickEntryTitle: "按项目类型快速进入",
       quickEntryAction: "进入",
+      wechatFab: "微信咨询",
+      wechatTitle: "微信咨询",
+      wechatClose: "收起",
+      wechatScan: "使用微信扫一扫",
+      wechatMobileHint: "复制微信号后，打开微信 → 添加朋友 → 搜索账号",
+      wechatCopy: "复制微信号",
+      wechatCopied: "已复制",
     },
     hero: {
-      title: "您的政商落地实战伙伴",
+      title: "哈萨克斯坦投资全周期咨询",
       description:
-        "从投资前策划、财法合规到融资并购，提供面向中国投资者的哈萨克斯坦全周期咨询服务。",
+        "从市场准入到运营落地，我们是中国投资者在哈萨克斯坦的长期合作伙伴。",
     },
     positioning:
       "我们不把项目当作一次性交付，而是把每次咨询嵌入客户长期增长战略：先把路径和风险算清楚，再组织资本、法务与执行资源共同推进。",
@@ -260,7 +273,7 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         "全流程透明协作与里程碑管理",
       ],
       coverage: ["覆盖哈萨克斯坦全境项目", "支持跨地区线上协作与远程交付", "支持中/俄/英多语沟通"],
-      contact: ["微信：KAZ-INVEST-TEAM", "咨询响应：1个工作日内", "可预约30分钟免费初评"],
+      contact: ["微信：NeverGiveUpp23", "咨询响应：1个工作日内", "可预约30分钟免费初评"],
     },
     strengths: [
       "政府背景与实战经验",
@@ -422,13 +435,11 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         ],
       },
     ],
-    wechatId: "KAZ-INVEST-TEAM",
+    wechatId: "NeverGiveUpp23",
   },
   "en-US": {
-    siteName: "Kaz Investment Advisory",
+    siteName: "SINOMAR INVESTMENT LTD",
     slogan: "Deep expertise in Kazakhstan, bridge to Central Asia",
-    ctaPrimary: "Book Consultation",
-    ctaSecondary: "Download Guide",
     nav: {
       home: "Home",
       services: "Services",
@@ -436,6 +447,11 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       faq: "FAQ",
       contact: "Contact",
     },
+    heroStats: [
+      { label: "Local market experience", value: "15+ yrs" },
+      { label: "Projects delivered", value: "50+" },
+      { label: "Flagship case size", value: "USD 15M+" },
+    ],
     proofStats: [
       { label: "Core service tracks", value: "7+" },
       { label: "Industries covered", value: "4 sectors" },
@@ -480,8 +496,6 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       marketResearchMethod: "Research Execution Method",
       faqIntro: "High-frequency questions on financing and execution.",
       faqAll: "All",
-      faqSearchPlaceholder: "Search by keyword (e.g. financing, model, timeline)",
-      faqNoResults: "No matches found. Try another keyword or topic.",
       primaryAction: "Book a 30-min advisory call",
       secondaryAction: "View service solutions",
       contactTitle: "Book Consultation",
@@ -502,6 +516,13 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       footerContact: "Contact",
       quickEntryTitle: "Quick Entry by Project Type",
       quickEntryAction: "Open",
+      wechatFab: "WeChat",
+      wechatTitle: "Contact on WeChat",
+      wechatClose: "Close",
+      wechatScan: "Scan with WeChat on your phone",
+      wechatMobileHint: "Copy the ID, then open WeChat → Add Contacts → Search",
+      wechatCopy: "Copy WeChat ID",
+      wechatCopied: "Copied",
     },
     hero: {
       title: "Execution Partner for Market Entry",
@@ -701,15 +722,13 @@ export const contentByLocale: Record<Locale, SiteContent> = {
         "Transparent milestones and deliverables",
       ],
       coverage: ["Projects across Kazakhstan", "Remote delivery and cross-region coordination", "Trilingual support (CN/RU/EN)"],
-      contact: ["WeChat: KAZ-INVEST-TEAM", "Response within 1 business day", "Book a free 30-min initial review"],
+      contact: ["WeChat: NeverGiveUpp23", "Response within 1 business day", "Book a free 30-min initial review"],
     },
-    wechatId: "KAZ-INVEST-TEAM",
+    wechatId: "NeverGiveUpp23",
   },
   "ru-RU": {
-    siteName: "Kaz Investment Advisory",
+    siteName: "SINOMAR INVESTMENT LTD",
     slogan: "Экспертиза по Казахстану — мост к возможностям Центральной Азии",
-    ctaPrimary: "Записаться на консультацию",
-    ctaSecondary: "Скачать гид",
     nav: {
       home: "Главная",
       services: "Услуги",
@@ -717,6 +736,11 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       faq: "FAQ",
       contact: "Контакт",
     },
+    heroStats: [
+      { label: "Опыт на рынке", value: "15+ лет" },
+      { label: "Реализованных проектов", value: "50+" },
+      { label: "Типовой кейс", value: "USD 15M+" },
+    ],
     proofStats: [
       { label: "Ключевых направлений", value: "7+" },
       { label: "Отраслей", value: "4" },
@@ -761,8 +785,6 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       marketResearchMethod: "Методика исследования рынка",
       faqIntro: "Частые вопросы по финансированию и реализации проектов.",
       faqAll: "Все",
-      faqSearchPlaceholder: "Поиск по ключевым словам (финансирование, модель, сроки)",
-      faqNoResults: "Ничего не найдено. Попробуйте другой запрос или тему.",
       primaryAction: "Бесплатная первичная оценка (30 мин)",
       secondaryAction: "Смотреть услуги",
       contactTitle: "Связаться",
@@ -783,6 +805,13 @@ export const contentByLocale: Record<Locale, SiteContent> = {
       footerContact: "Контакты",
       quickEntryTitle: "Быстрый вход по типу проекта",
       quickEntryAction: "Открыть",
+      wechatFab: "WeChat",
+      wechatTitle: "Консультация в WeChat",
+      wechatClose: "Свернуть",
+      wechatScan: "Отсканируйте QR-код в WeChat",
+      wechatMobileHint: "Скопируйте ID → WeChat → Добавить → Поиск",
+      wechatCopy: "Скопировать ID",
+      wechatCopied: "Скопировано",
     },
     hero: {
       title: "Партнёр по реализации и входу на рынок",
@@ -952,8 +981,8 @@ export const contentByLocale: Record<Locale, SiteContent> = {
     footerInfo: {
       compliance: ["Конфиденциальность и этика", "Международные стандарты моделирования и анализа", "Прозрачные этапы и результаты"],
       coverage: ["Проекты по всему Казахстану", "Удалённая работа и межрегиональная координация", "Поддержка на RU/EN/CN"],
-      contact: ["WeChat: KAZ-INVEST-TEAM", "Ответ в течение 1 рабочего дня", "Бесплатная первичная оценка 30 минут"],
+      contact: ["WeChat: NeverGiveUpp23", "Ответ в течение 1 рабочего дня", "Бесплатная первичная оценка 30 минут"],
     },
-    wechatId: "KAZ-INVEST-TEAM",
+    wechatId: "NeverGiveUpp23",
   },
 };

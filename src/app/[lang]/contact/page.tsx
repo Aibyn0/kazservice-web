@@ -16,10 +16,10 @@ export default async function ContactPage({ params }: ContactPageProps) {
   const t = contentByLocale[lang];
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-2xl bg-brand-primary px-6 py-8 text-white">
-        <h1 className="text-3xl font-bold">{t.labels.contactTitle}</h1>
-        <p className="mt-2 max-w-3xl text-slate-200">{t.labels.contactIntro}</p>
+    <div className="inner-page">
+      <section className="content-card content-card--hero">
+        <h1 className="section-title">{t.labels.contactTitle}</h1>
+        <p className="section-desc mt-3 max-w-3xl">{t.labels.contactIntro}</p>
       </section>
 
       <ContactForm labels={t.labels} />

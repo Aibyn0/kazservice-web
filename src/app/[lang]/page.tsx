@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { HomeHero } from "@/components/home-hero";
+import { ProcessFlow } from "@/components/process-flow";
+import { ButtonLink } from "@/components/ui/button";
+import { Section, SectionHeader } from "@/components/ui/section";
 import { isValidLocale } from "@/lib/i18n";
 import { contentByLocale } from "@/lib/site-content";
 
@@ -14,173 +18,169 @@ export default async function HomePage({ params }: HomePageProps) {
   }
 
   const t = contentByLocale[lang];
-
+  const caseMetric =
+    lang === "zh-CN" ? "1500万" : lang === "ru-RU" ? "USD 15M" : "USD 15M";
   return (
-    <div className="space-y-10 sm:space-y-12">
-      <section className="rounded-3xl bg-gradient-to-br from-brand-primary to-[#0b2d5f] px-6 py-10 text-white shadow-lg sm:px-10 sm:py-12">
-        <div className="grid gap-6 md:grid-cols-2 md:items-end">
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-brand-accent">{t.slogan}</p>
-            <h1 className="mt-3 text-3xl font-bold sm:text-4xl">{t.hero.title}</h1>
-            <p className="mt-4 max-w-3xl text-base text-slate-200 sm:text-lg">{t.hero.description}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href={`/${lang}/contact`}
-                className="rounded-xl bg-brand-accent px-5 py-2 font-semibold text-brand-primary"
-              >
-                {t.labels.primaryAction}
-              </Link>
-              <Link
-                href={`/${lang}/services`}
-                className="rounded-xl border border-slate-200 px-5 py-2 font-semibold text-white"
-              >
-                {t.labels.secondaryAction}
-              </Link>
-            </div>
-          </div>
-
-          {t.proofStats && (
-            <div className="grid grid-cols-2 gap-3">
-              {t.proofStats.map((item) => (
-                <article key={item.label} className="rounded-xl border border-white/20 bg-white/10 p-4">
-                  <p className="text-xl font-bold text-brand-accent sm:text-2xl">{item.value}</p>
-                  <p className="mt-1 text-xs text-slate-100">{item.label}</p>
-                </article>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
+    <div className="home-page pb-4">
+      <HomeHero lang={lang} />
       {t.positioning && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-          <h2 className="text-2xl font-bold text-brand-primary">{t.labels.positioning}</h2>
-          <p className="mt-3 text-slate-700">{t.positioning}</p>
-        </section>
+        <Section className="home-intro-panel">
+          <SectionHeader eyebrow="Why Us" title={t.labels.positioning} />
+          <p className="text-base leading-relaxed">{t.positioning}</p>
+        </Section>
       )}
 
       {t.projectTracks && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-          <h2 className="text-2xl font-bold text-brand-primary">{t.labels.quickEntryTitle}</h2>
-          <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            {t.projectTracks.map((track) => (
-              <article key={track.title} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <h3 className="text-base font-semibold">{track.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{track.summary}</p>
+        <Section>
+          <SectionHeader title={t.labels.quickEntryTitle} description={t.hero.description} />
+          <div className="grid gap-4 md:grid-cols-3">
+            {t.projectTracks.map((track, i) => (
+              <article key={track.title} className="card-hover track-card">
+                <span className="text-xs font-bold text-brand-accent">0{i + 1}</span>
+                <h3 className="mt-2 text-lg font-semibold text-brand-primary">{track.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{track.summary}</p>
                 <Link
                   href={`/${lang}${track.href}`}
-                  className="mt-3 inline-flex text-sm font-semibold text-brand-primary underline"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-primary hover:underline"
                 >
                   {t.labels.quickEntryAction}
+                  <span aria-hidden>→</span>
                 </Link>
               </article>
             ))}
           </div>
-        </section>
+        </Section>
       )}
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-        <h2 className="text-2xl font-bold text-brand-primary">{t.labels.coreStrengths}</h2>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+      <Section>
+        <SectionHeader title={t.labels.coreStrengths} />
+        <ul className="grid gap-4 sm:grid-cols-2">
           {t.strengths.map((strength) => (
-            <div key={strength} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <li key={strength} className="strength-item py-1">
               {strength}
-            </div>
+            </li>
           ))}
-        </div>
-      </section>
+        </ul>
+      </Section>
 
       {t.about && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-          <h2 className="text-2xl font-bold text-brand-primary">{t.labels.aboutUs}</h2>
-          <div className="mt-4 space-y-3">
-            {t.about.map((line) => (
-              <p key={line} className="text-slate-700">
+        <Section>
+          <SectionHeader title={t.labels.aboutUs} />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {t.about.map((line, i) => (
+              <p key={line} className="rounded-xl bg-slate-50 p-4 text-sm leading-relaxed text-slate-700 sm:text-base">
+                <span className="mr-2 font-bold text-brand-accent">{i + 1}.</span>
                 {line}
               </p>
             ))}
           </div>
-        </section>
+        </Section>
       )}
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-brand-primary">{t.nav.services}</h2>
-          <Link href={`/${lang}/services`} className="text-sm font-semibold text-brand-primary underline">
-            {t.labels.viewAll}
-          </Link>
-        </div>
-        <div className="mt-5 grid gap-4 sm:grid-cols-3">
-          {t.services.map((item) => (
-            <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{item.summary}</p>
+      <Section>
+        <SectionHeader
+          title={t.nav.services}
+          action={
+            <Link href={`/${lang}/services`} className="btn btn-ghost text-sm">
+              {t.labels.viewAll} →
+            </Link>
+          }
+        />
+        <div className="grid gap-4 md:grid-cols-3">
+          {t.services.map((item, i) => (
+            <article key={item.title} className="card-hover">
+              <span className="inline-flex rounded-full bg-brand-accent/15 px-2.5 py-0.5 text-xs font-semibold text-brand-primary">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 text-lg font-semibold text-brand-primary">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.summary}</p>
             </article>
           ))}
         </div>
-      </section>
+      </Section>
 
       {t.caseStudy && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-          <h2 className="text-2xl font-bold text-brand-primary">{t.labels.caseStudy}</h2>
-          <article className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <h3 className="text-xl font-semibold">{t.caseStudy.title}</h3>
-            <p className="mt-2 text-slate-700">
-              <span className="font-semibold">{t.labels.challenge}：</span>
-              {t.caseStudy.challenge}
-            </p>
-            <div className="mt-3">
-              <p className="font-semibold text-slate-800">{t.labels.solution}：</p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700">
-                {t.caseStudy.solution.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+        <Section>
+          <SectionHeader title={t.labels.caseStudy} />
+          <article className="case-highlight">
+            <div className="case-metric">
+              <p className="text-xs uppercase tracking-wider text-slate-300">{t.labels.result}</p>
+              <p className="case-metric-value mt-2">{caseMetric}</p>
+              <p className="mt-2 text-xs text-slate-200">
+                {lang === "zh-CN" ? "美元融资" : lang === "ru-RU" ? "инвестиции" : "financing"}
+              </p>
             </div>
-            <div className="mt-3">
-              <p className="font-semibold text-slate-800">{t.labels.result}：</p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700">
-                {t.caseStudy.result.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-3">
-              <p className="font-semibold text-slate-800">{t.labels.replicableMethod}：</p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700">
-                {t.caseStudy.method.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-brand-primary">{t.caseStudy.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600">
+                <span className="font-semibold text-slate-800">{t.labels.challenge}: </span>
+                {t.caseStudy.challenge}
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-accent">{t.labels.solution}</p>
+                  <ul className="mt-2 space-y-1.5 text-sm text-slate-600">
+                    {t.caseStudy.solution.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-brand-accent">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-accent">{t.labels.result}</p>
+                  <ul className="mt-2 space-y-1.5 text-sm text-slate-600">
+                    {t.caseStudy.result.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-brand-accent">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </article>
-        </section>
+        </Section>
       )}
 
       {t.processSteps && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-          <h2 className="text-2xl font-bold text-brand-primary">{t.labels.process}</h2>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {t.processSteps.map((step, index) => (
-              <article key={step} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                <p className="text-xs font-semibold tracking-wide text-brand-accent">STEP {index + 1}</p>
-                <p className="mt-2 text-slate-700">{step}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        <Section className="home-process-section">
+          <SectionHeader title={t.labels.process} />
+          <ProcessFlow steps={t.processSteps} />
+        </Section>
       )}
 
       {t.financingSources && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-brand-primary">{t.labels.financingSources}</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+        <Section>
+          <SectionHeader title={t.labels.financingSources} />
+          <ul className="grid gap-3 sm:grid-cols-2">
             {t.financingSources.map((item) => (
-              <li key={item}>{item}</li>
+              <li
+                key={item}
+                className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm text-slate-700"
+              >
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-accent" />
+                {item}
+              </li>
             ))}
           </ul>
-        </section>
+        </Section>
       )}
+
+      <section className="cta-band">
+        <h2 className="text-2xl font-bold">{t.labels.contactTitle}</h2>
+        <p className="mx-auto mt-3 max-w-lg text-sm text-slate-200 sm:text-base">{t.labels.contactIntro}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <ButtonLink href={`/${lang}/contact`} variant="primary">
+            {t.labels.primaryAction}
+          </ButtonLink>
+          <ButtonLink href={`/${lang}/faq`} variant="secondary">
+            {t.nav.faq}
+          </ButtonLink>
+        </div>
+      </section>
     </div>
   );
 }

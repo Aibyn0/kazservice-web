@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PageHeader } from "@/components/page-header";
+import { ProcessFlow } from "@/components/process-flow";
 import { isValidLocale } from "@/lib/i18n";
 import { contentByLocale } from "@/lib/site-content";
 
@@ -21,29 +22,27 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
       : "Match capital channels and deal structures to project stage and risk profile.";
 
   return (
-    <div className="space-y-8">
-      <h1 className="text-3xl font-bold text-brand-primary">{t.nav.services}</h1>
-      <p className="mt-3 max-w-3xl text-slate-600">{t.hero.description}</p>
-      <Link
-        href={`/${lang}/contact`}
-        className="inline-flex rounded-lg bg-brand-primary px-4 py-2 text-sm font-semibold text-white"
-      >
-        {t.labels.primaryAction}
-      </Link>
+    <div className="inner-page">
+      <PageHeader
+        title={t.nav.services}
+        description={t.hero.description}
+        actionHref={`/${lang}/contact`}
+        actionLabel={t.labels.primaryAction}
+      />
 
-      <div className="grid gap-6">
+      <div className="grid gap-5">
         {t.services.map((item, index) => (
-          <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
+          <article key={item.title} className="content-card">
             <p className="text-xs font-semibold tracking-wide text-brand-accent">
               {moduleLabel} {index + 1}
             </p>
-            <h2 className="text-xl font-semibold">{item.title}</h2>
-            <p className="mt-2 text-slate-600">{item.summary}</p>
+            <h2 className="mt-1 text-xl font-semibold">{item.title}</h2>
+            <p className="mt-2">{item.summary}</p>
 
             {item.details && (
               <div className="mt-4">
                 <h3 className="text-sm font-semibold text-brand-primary">{t.labels.serviceContent}</h3>
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
                   {item.details.map((detail) => (
                     <li key={detail}>{detail}</li>
                   ))}
@@ -54,7 +53,7 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
             {item.forWho && (
               <div className="mt-4">
                 <h3 className="text-sm font-semibold text-brand-primary">{t.labels.fitProjects}</h3>
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
                   {item.forWho.map((target) => (
                     <li key={target}>{target}</li>
                   ))}
@@ -63,9 +62,9 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
             )}
 
             {item.notForWho && (
-              <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3">
-                <h3 className="text-sm font-semibold text-amber-800">{t.labels.notFitProjects}</h3>
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-amber-900">
+              <div className="content-card--accent mt-4 p-4">
+                <h3 className="text-sm font-semibold">{t.labels.notFitProjects}</h3>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
                   {item.notForWho.map((target) => (
                     <li key={target}>{target}</li>
                   ))}
@@ -76,7 +75,7 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
             {item.deliverables && (
               <div className="mt-4">
                 <h3 className="text-sm font-semibold text-brand-primary">{t.labels.deliverables}</h3>
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
                   {item.deliverables.map((deliverable) => (
                     <li key={deliverable}>{deliverable}</li>
                   ))}
@@ -88,10 +87,10 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
       </div>
 
       {t.financingSources && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <section className="content-card">
           <h2 className="text-xl font-semibold text-brand-primary">{t.labels.financingSources}</h2>
-          <p className="mt-2 text-slate-600">{financingDesc}</p>
-          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
+          <p className="mt-2">{financingDesc}</p>
+          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm">
             {t.financingSources.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -100,9 +99,9 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
       )}
 
       {t.workMethod && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <section className="content-card">
           <h2 className="text-xl font-semibold text-brand-primary">{t.labels.workMethod}</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+          <ul className="mt-3 list-disc space-y-2 pl-5">
             {t.workMethod.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -111,13 +110,11 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
       )}
 
       {t.processSteps && (
-        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <section className="content-card">
           <h2 className="text-xl font-semibold text-brand-primary">{t.labels.cooperationFlow}</h2>
-          <ol className="mt-3 list-decimal space-y-2 pl-5 text-slate-700">
-            {t.processSteps.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
+          <div className="mt-5">
+            <ProcessFlow steps={t.processSteps} />
+          </div>
         </section>
       )}
     </div>

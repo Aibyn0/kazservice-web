@@ -1,14 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+const WECHAT_QR_SRC = "/images/wechat-qr.jpeg";
+
+type WechatFloatLabels = {
+  wechatFab: string;
+  wechatTitle: string;
+  wechatClose: string;
+  wechatScan: string;
+  wechatMobileHint: string;
+  wechatCopy: string;
+  wechatCopied: string;
+};
 
 type WechatFloatProps = {
   wechatId: string;
+  labels: WechatFloatLabels;
 };
 
-export function WechatFloat({ wechatId }: WechatFloatProps) {
+export function WechatFloat({ wechatId, labels }: WechatFloatProps) {
+  const rootRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
   const [opened, setOpened] = useState(false);
+
+  useEffect(() => {
+    if (!opened) {
+      return;
+    }
+    function onPointerDown(event: MouseEvent) {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setOpened(false);
+      }
+    }
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpened(false);
+      }
+    }
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [opened]);
 
   async function copyWechatId() {
     try {
@@ -21,31 +58,35 @@ export function WechatFloat({ wechatId }: WechatFloatProps) {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-40">
+    <div ref={rootRef} className="wechat-float">
       {opened ? (
-        <div className="w-56 rounded-2xl border border-brand-accent/40 bg-brand-primary p-4 text-white shadow-xl">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold">微信咨询</p>
-            <button type="button" onClick={() => setOpened(false)} className="text-xs text-slate-200">
-              收起
+        <div className="wechat-float__panel" role="dialog" aria-label={labels.wechatTitle}>
+          <div className="wechat-float__head">
+            <p className="wechat-float__title">{labels.wechatTitle}</p>
+            <button type="button" onClick={() => setOpened(false)} className="wechat-float__close">
+              {labels.wechatClose}
             </button>
           </div>
-          <p className="mt-1 text-xs opacity-90">{wechatId}</p>
-          <button
-            type="button"
-            onClick={copyWechatId}
-            className="mt-3 rounded-lg bg-brand-accent px-3 py-1 text-xs font-semibold text-brand-primary transition hover:brightness-95"
-          >
-            {copied ? "已复制" : "复制微信号"}
+          <p className="wechat-float__hint wechat-float__hint--mobile">{labels.wechatMobileHint}</p>
+          <p className="wechat-float__hint wechat-float__hint--desktop">{labels.wechatScan}</p>
+          <div className="wechat-float__qr-wrap">
+            <Image
+              src={WECHAT_QR_SRC}
+              alt={labels.wechatScan}
+              width={220}
+              height={220}
+              className="wechat-float__qr"
+              unoptimized
+            />
+          </div>
+          <p className="wechat-float__id">{wechatId}</p>
+          <button type="button" onClick={copyWechatId} className="wechat-float__copy">
+            {copied ? labels.wechatCopied : labels.wechatCopy}
           </button>
         </div>
       ) : (
-        <button
-          type="button"
-          onClick={() => setOpened(true)}
-          className="rounded-full bg-brand-primary px-4 py-2 text-sm font-semibold text-white shadow-lg"
-        >
-          微信咨询
+        <button type="button" onClick={() => setOpened(true)} className="wechat-float__fab">
+          {labels.wechatFab}
         </button>
       )}
     </div>
